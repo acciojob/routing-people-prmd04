@@ -5,11 +5,11 @@ const UserDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // ✅ for "Loading..." state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchUser() {
-      setLoading(true); // show loading initially
+      setLoading(true); 
       try {
         const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
         if (!response.ok) throw new Error('Unable to fetch user');
@@ -24,7 +24,7 @@ const UserDetails = () => {
     fetchUser();
   }, [id]);
 
-  if (loading) return <div>Loading...</div>; // ✅ must be inside div
+  if (loading) return <div>Loading...</div>; 
 
   if (!user) return <div>User not found</div>;
 

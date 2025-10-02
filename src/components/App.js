@@ -14,7 +14,7 @@ const App = () => {
   useEffect(()=>{
     async function fetchUser(){
       try{
-        const response = await fetch("https://dummyjson.com/users");
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
         if(!response.ok){
           throw new error ("unable to fetch the user details")
@@ -23,7 +23,7 @@ const App = () => {
         const data = await response.json();
         console.log(data);
 
-        setUsers(data.users)
+        setUsers(data)
       }
       catch(err){
         alert(err);
